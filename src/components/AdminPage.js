@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import {withRouter} from "react-router-dom"
-import { Form, Button, Card } from "react-bootstrap"
+import { Form, Button, Card, Table } from "react-bootstrap"
 import {check} from '../functions/init';
 import {getChart} from '../functions/chart'
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
+import AdminPlan from "./AdminPlan";
 import Row from "react-bootstrap/Row";
 class AdminPageCP extends Component {
     constructor(props) {
@@ -75,6 +76,23 @@ class AdminPageCP extends Component {
         const err = this.state.message? <><Alert variant="danger"> {this.state.message}</Alert>
             <Button onClick={this.goBack} variant="secondary">Login again</Button>
         </> : "";
+        const dataFunc = () => {
+           let arr = [];
+           if (this.state.data){
+               for (let key in this.state.data){
+                   let row = this.state.data[key];
+                   arr.push(<tr>
+                       <td>
+                           {row.total}
+                       </td>
+                       <td>
+                           {row.dayM?row.dayM.toString():''}
+                       </td>
+                   </tr>)
+               }
+           }
+            return arr;
+        };
         return (
             <>
                 {(this.state.fetch) ? "Waiting" : (err !== "")? err :
@@ -82,8 +100,8 @@ class AdminPageCP extends Component {
                     <Tab eventKey="home" title="Home">
                         home
                     </Tab>
-                    <Tab eventKey="profile" title="Profile">
-                        prof
+                    <Tab eventKey="plan" title="Plan">
+                        <AdminPlan />
                     </Tab>
                     <Tab eventKey="contact" title="Payments">
 
@@ -141,7 +159,20 @@ class AdminPageCP extends Component {
                         </div>
                         <Card>
                             <Card.Header>Statistics</Card.Header>
-                            <Card.Body>{this.state.data? JSON.stringify(this.state.data) : ''}</Card.Body>
+                            <Card.Body>
+                                <Table>
+                                    <thead>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>Date</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {dataFunc()}
+                                    </tbody>
+                                </Table>
+                                {/*{this.state.data? JSON.stringify(this.state.data) : ''}*/}
+                            </Card.Body>
                         </Card>
                     </Tab>
                 </Tabs> }
