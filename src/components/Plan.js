@@ -17,7 +17,6 @@ class Plan extends Component{
                     <ListGroupItem>{parseFloat(this.props.item.profit.$numberDecimal).toString()}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                    <Card.Link href="#">Edit</Card.Link>
                     <Card.Link href="#" onClick={()=>this.props.delete(this.props.item)}>Delete</Card.Link>
                 </Card.Body>
             </Card>
