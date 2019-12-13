@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15d38806-e1f2-4904-94aa-34eb73baa6a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPlan.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/functions/plan.js" afterDir="false" />
+    <list default="true" id="15d38806-e1f2-4904-94aa-34eb73baa6a5" name="Default Changelist" comment="- add chartAdapter.js;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPage.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +21,13 @@
   </component>
   <component name="ProjectId" id="1UcHJY6odFxbY8Xmv1AUhUbAKaT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -39,18 +41,6 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -59,6 +49,18 @@
       <envs />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -73,7 +75,23 @@
       <workItem from="1576065989790" duration="887000" />
       <workItem from="1576067296963" duration="10942000" />
       <workItem from="1576155419861" duration="5073000" />
+      <workItem from="1576230608862" duration="5072000" />
     </task>
+    <task id="LOCAL-00001" summary="- add chartAdapter.js;">
+      <created>1576233453410</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576233453410</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- add dependencies;">
+      <created>1576233597667</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576233597667</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,11 +102,44 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- add chartAdapter.js;" />
+    <MESSAGE value="- add dependencies;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add dependencies;" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="391" y="0" key="CommitChangelistDialog2" timestamp="1576233596691">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="391" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1576233596691" />
+    <state width="1515" height="193" key="GridCell.Tab.0.bottom" timestamp="1576236316377">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="193" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1576236316377" />
+    <state width="1515" height="193" key="GridCell.Tab.0.center" timestamp="1576236316377">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="193" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1576236316377" />
+    <state width="1515" height="193" key="GridCell.Tab.0.left" timestamp="1576236316377">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="193" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1576236316377" />
+    <state width="1515" height="193" key="GridCell.Tab.0.right" timestamp="1576236316377">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1515" height="193" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1576236316377" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1576233603656">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1576233603656" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>
