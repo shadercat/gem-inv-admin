@@ -97,14 +97,10 @@ class AdminPageCP extends Component {
             <>
                 {(this.state.fetch) ? "Waiting" : (err !== "")? err :
                 <Tabs defaultActiveKey="home" transition={false} id="noanim-tab-example">
-                    <Tab eventKey="home" title="Home">
-                        home
-                    </Tab>
                     <Tab eventKey="plan" title="Plan">
                         <AdminPlan />
                     </Tab>
                     <Tab eventKey="contact" title="Payments">
-
                         <div style={{width: "30rem"}}>
                             <div>
                             <Form onSubmit={this.submitPayment}>

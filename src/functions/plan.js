@@ -14,4 +14,4 @@ export const postPlan = (data) => {
     {
         return {errors:err}
     })
-}
+};
