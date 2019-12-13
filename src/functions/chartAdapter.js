@@ -75,7 +75,7 @@ const getChartData = function (labels, arr_data, arr_names) {
     }
 };
 
-const getLineChartData = function (labels, arr_data, arr_names) {
+export const getLineChartData = function (labels, arr_data, arr_names) {
     let dataSets = [];
     for(let i = 0; i < arr_data.length; i++){
         dataSets.push(universalLineChartDataSet(arr_names[i], arr_data[i]));
