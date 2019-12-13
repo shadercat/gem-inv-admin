@@ -9,6 +9,8 @@ import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import AdminPlan from "./AdminPlan";
 import Row from "react-bootstrap/Row";
+import {getLineChartData} from '../functions/chartAdapter'
+import {Line} from 'react-chartjs-2'
 class AdminPageCP extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +20,8 @@ class AdminPageCP extends Component {
             from: null,
             to: null,
             typeOperation: 'withdraw',
-            typeReport: "sum"
+            typeReport: "sum",
+            dataForGraphic: null
         };
         this.submitPayment = this.submitPayment.bind(this);
         this.check = check.bind(this);
@@ -66,6 +69,38 @@ class AdminPageCP extends Component {
           if (resp.errors) {
               alert(resp.errors.toString());
           }  else {
+              let dataGraphik = {days: [], values: [], names: []};
+              if (o.typeReport !== "sum") {
+                  if (o.typeOperation === "all") {
+                      dataGraphik.names = ["withdraw", "pay"];
+                      for (let key in resp.data) {
+                          dataGraphik.values.push([]);
+                          resp.data[key].forEach((item, i) => {
+                              if (item.dayM) {
+                                  let d = new Date(item.dayM);
+                                  if (key === "0")
+                                      dataGraphik.days.push(`${d.getDate()}.${d.getMonth()}`);
+                                  dataGraphik.values[key].push(item.total);
+                              }
+                          });
+                      }
+                  } else {
+                      dataGraphik.names.push(o.typeOperation);
+                      dataGraphik.values.push([]);
+                      resp.data.forEach((item, i) => {
+                          if (item.dayM) {
+                              let d = new Date(item.dayM);
+                              dataGraphik.days.push(`${d.getDate()}.${d.getMonth()}`);
+                              dataGraphik.values[0].push(item.total);
+                          }
+                      });
+                  }
+
+              }
+
+              if (dataGraphik.days.length > 0) {
+                  this.setState({dataForGraphic: dataGraphik})
+              }
               this.setState({data: resp.data});
           }
         })
@@ -156,6 +191,11 @@ class AdminPageCP extends Component {
                         <Card>
                             <Card.Header>Statistics</Card.Header>
                             <Card.Body>
+                                {this.state.dataForGraphic? <Line data={getLineChartData(
+                                    this.state.dataForGraphic.days,
+                                    this.state.dataForGraphic.values,
+                                    this.state.dataForGraphic.names
+                                    )}/>: ""}
                                 <Table>
                                     <thead>
                                     <tr>
