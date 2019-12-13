@@ -5,6 +5,7 @@ class Plan extends Component{
     constructor(props){
         super(props);
 
+
     }
 
     render(){
@@ -16,8 +17,8 @@ class Plan extends Component{
                     <ListGroupItem>{parseFloat(this.props.item.profit.$numberDecimal).toString()}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+                    <Card.Link href="#">Edit</Card.Link>
+                    <Card.Link href="#" onClick={()=>this.props.delete(this.props.item)}>Delete</Card.Link>
                 </Card.Body>
             </Card>
         );

@@ -9,16 +9,21 @@ import Tab from "react-bootstrap/Tab";
 import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import {postPlan,getPlans} from '../functions/plan'
+import {postPlan, deletePlan, getPlans} from '../functions/plan'
 import {forEach} from "react-bootstrap/esm/ElementChildren";
+import _ from "lodash";
+
+
 class AdminPlan extends Component{
     constructor(props){
         super(props);
         this.state={
             tableDataPlan: null,
         }
-        this.getPlan=getPlans.bind(this);
+        this.delete = this.delete.bind(this);
+        this.getPlan = getPlans.bind(this);
         this.postPlan = postPlan.bind(this);
+        this.deletePlan = deletePlan.bind(this);
         this.onChange=this.onChange.bind(this);
         this.add=this.add.bind(this);
     }
@@ -45,6 +50,24 @@ class AdminPlan extends Component{
         })
 
     }
+
+    delete(item, i){
+      // alert(id);
+      var success = false;
+      this.deletePlan(item._id).then(
+        success = true
+      )
+      if(success){
+        var array = this.state.tableDataPlan;
+      _.pull(array, item);
+      this.setState(
+          {
+              tableDataPlan: array
+          }
+      )
+    }
+  }
+
     onChange(e) {
         let obj = {};
         obj[e.target.name] = e.target.value;
@@ -54,7 +77,7 @@ class AdminPlan extends Component{
     render() {
         var plan = this.state.tableDataPlan ? JSON.stringify(this.state.tableDataPlan) : 'waiting';
         if(this.state.tableDataPlan){
-            var planList = (this.state.tableDataPlan.map((item,i) => <Plan item={item} key={i}/>));
+            var planList = (this.state.tableDataPlan.map((item,i) => <Plan item={item} key={i} delete={this.delete}/>));
         }
         return <div>
                     <h1>Plan</h1>
