@@ -14,6 +14,7 @@ function check(token) {
     }).catch(err => {
         return {errors: err}
     })
+
 }
 
 module.exports = {
