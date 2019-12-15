@@ -79,7 +79,7 @@ class AdminPageCP extends Component {
                               if (item.dayM) {
                                   let d = new Date(item.dayM);
                                   if (key === "0")
-                                      dataGraphik.days.push(`${d.getDate()}.${d.getMonth()}`);
+                                      dataGraphik.days.push(`${d.getDate()}/${d.getMonth() + 1}`);
                                   dataGraphik.values[key].push(item.total);
                               }
                           });
@@ -116,6 +116,7 @@ class AdminPageCP extends Component {
            if (this.state.data){
                for (let key in this.state.data){
                    let row = this.state.data[key];
+                   if (row.total !== 0)
                    arr.push(<tr>
                        <td>
                            {row.total}
@@ -142,12 +143,12 @@ class AdminPageCP extends Component {
                                 <Form.Row>
                                     <Form.Group as={Col} controlId={"from"}>
                                         <Form.Label>From</Form.Label>
-                                        <Form.Control type="date" value={this.state.from}/>
+                                        <Form.Control type="date" value={this.state.from} name="from" onChange={this.onChange}/>
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId={"to"}>
                                         <Form.Label>To</Form.Label>
-                                        <Form.Control type="date" value={this.state.to}/>
+                                        <Form.Control type="date" value={this.state.to} name="to" onChange={this.onChange}/>
                                     </Form.Group>
                                     <Form.Group as={Col} controlId={"to"}>
                                         <Form.Label>All Time</Form.Label>
