@@ -27,7 +27,17 @@
 .App-link {
   color: #61dafb;
 }
+.form-row{
+  margin: 2vh 0;
+}
 
+.addingForm>input {
+  margin: 1.5vh 0;
+}
+.div_for_chart {
+  width: 50%;
+  margin: 0 auto;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -191,11 +191,15 @@ class AdminPageCP extends Component {
                         <Card>
                             <Card.Header>Statistics</Card.Header>
                             <Card.Body>
+                                <div className="div_for_chart">
+                                    
                                 {this.state.dataForGraphic? <Line data={getLineChartData(
                                     this.state.dataForGraphic.days,
                                     this.state.dataForGraphic.values,
                                     this.state.dataForGraphic.names
                                     )}/>: ""}
+                                    
+                                </div>
                                 <Table>
                                     <thead>
                                     <tr>

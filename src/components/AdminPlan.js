@@ -87,7 +87,7 @@ class AdminPlan extends Component{
             </div>
                 </div>
                 <div style={{margin: 3 + 'em auto', padding: '3em 20em'}}>
-                <Form onSubmit={this.add}>
+                <Form className="addingForm" onSubmit={this.add}>
                 <Form.Control type="text" placeholder="Name " name="name" onChange={this.onChange}/>
                 <Form.Control type="number" placeholder="Time " min={1} max={365} name="timePlan" onChange={this.onChange} />
                 <Form.Control type="number" placeholder="Profit " step="0.01" min="0.01" max="1" name="profit" onChange={this.onChange} />
